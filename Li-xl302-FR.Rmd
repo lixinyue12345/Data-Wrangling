@@ -1,0 +1,334 @@
+---
+title: "Li-xl302-FP"
+author: "Xinyue Li"
+date: "5/2/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(wordcloud)
+library(magrittr)
+library(tidytext)
+library(purrr)
+library(ggplot2)
+library(printr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+usa_names_agg <- read_csv('/Users/xinyueli/Desktop/usa_names_agg.csv')
+head(usa_names_agg)
+summary(usa_names_agg)
+```
+
+```{r}
+data <- usa_names_agg[,-1]
+head(data)
+typeof(data)
+data1 <- as.data.frame(data)
+head(data1)
+```
+```{r}
+datatotalM <- data1 %>%
+  filter(gender =='M') %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+datatotalM[1:5,]
+wordcloud(datatotalM$name, datatotalM$count,max.words=5)
+```
+
+```{r}
+datatotalF <- data1 %>%
+  filter(gender =='F') %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+datatotalF[1:5,]
+wordcloud(datatotalF$name, datatotalF$count,max.words=5)
+```
+
+```{r}
+data2001M <- data1 %>%
+  filter(gender =='M', year==2001) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2001M[1:5,]
+```
+```{r}
+data2001F <- data1 %>%
+  filter(gender =='F', year==2001) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2001F[1:5,]
+```
+```{r}
+data1996M <- data1 %>%
+  filter(gender =='M', year==1996) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data1996M[1:5,]
+```
+```{r}
+data1996F <- data1 %>%
+  filter(gender =='F', year==1996) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data1996F[1:5,]
+```
+
+```{r}
+data1997M <- data1 %>%
+  filter(gender =='M', year==1997) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data1997M[1:5,]
+```
+```{r}
+data1997F <- data1 %>%
+  filter(gender =='F', year==1997) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data1997F[1:5,]
+```
+
+
+```{r}
+data2002M <- data1 %>%
+  filter(gender =='M', year==2002) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2002M[1:5,]
+```
+```{r}
+data2002F <- data1 %>%
+  filter(gender =='F', year==2002) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2002F[1:5,]
+```
+```{r}
+data2004M <- data1 %>%
+  filter(gender =='M', year==2004) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2004M[1:5,]
+```
+```{r}
+data2004F <- data1 %>%
+  filter(gender =='F', year==2004) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2004F[1:5,]
+```
+```{r}
+data2005M <- data1 %>%
+  filter(gender =='M', year==2005) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2005M[1:5,]
+```
+```{r}
+data2005F <- data1 %>%
+  filter(gender =='F', year==2005) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2005F[1:5,]
+```
+
+```{r}
+data2007M <- data1 %>%
+  filter(gender =='M', year==2007) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2007M[1:5,]
+```
+```{r}
+data2007F <- data1 %>%
+  filter(gender =='F', year==2007) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2007F[1:5,]
+```
+
+```{r}
+data2009M <- data1 %>%
+  filter(gender =='M', year==2009) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2009M[1:5,]
+```
+```{r}
+data2009F <- data1 %>%
+  filter(gender =='F', year==2009) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2009F[1:5,]
+```
+
+```{r}
+data2010M <- data1 %>%
+  filter(gender =='M', year==2010) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2010M[1:5,]
+```
+```{r}
+data2010F <- data1 %>%
+  filter(gender =='F', year==2010) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2010F[1:5,]
+```
+
+```{r}
+data2011M <- data1 %>%
+  filter(gender =='M', year==2011) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2011M[1:5,]
+```
+```{r}
+data2011F <- data1 %>%
+  filter(gender =='F', year==2011) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2011F[1:5,]
+```
+
+```{r}
+data2016M <- data1 %>%
+  filter(gender =='M', year==2016) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2016M[1:5,]
+```
+```{r}
+data2016F <- data1 %>%
+  filter(gender =='F', year==2016) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+data2016F[1:5,]
+```
+
+```{r}
+dataingM <- data1 %>%
+  filter(gender =='M', year>=2001&year<=2016) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+dataingM[1:5,]
+```
+```{r}
+dataingF <- data1 %>%
+  filter(gender =='F', year>=2001&year<=2016) %>%
+  group_by(name)%>%
+  summarize(count=sum(number))%>%
+  arrange(desc(count))
+dataingF[1:5,]
+```
+
+
+
+
+```{r}
+library(tseries)
+library(xts)
+library(fBasics)
+library(FinTS)
+library(fGarch)
+library(rugarch)
+library(forecast)
+```
+
+```{r}
+library(readr)
+library(readxl)
+usa_names_agg <- read_csv('/Users/xinyueli/Desktop/usa_names_agg.csv')
+data1=usa_names_agg[,2:5]
+y=data1[data1$name=='Harry'& data1$gender=='M'&data1$year>=1990,]
+ynumber=y$number
+yt=ts(ynumber,1:length(y$year))
+```
+
+```{r}
+plot(yt)
+adf.test(yt)
+dyt=diff(yt)[-1]
+adf.test(dyt)
+ArchTest(dyt)
+
+m1=arima(yt,c(1,1,1))
+summary(m1)
+mbest=auto.arima(yt)
+summary(mbest)
+
+fit1=fitted(mbest)
+
+plot(yt)
+lines(fit1,col='blue')
+
+
+pre1=forecast(mbest,5)
+plot(pre1)
+```
+
+```{r}
+y1=data1[data1$name=='Hermione' & data1$gender=='F' & data1$year>=1990,]
+y1number=y1$number
+yt1=ts(y1number,1:length(y1$year))
+```
+
+```{r}
+plot(yt1)
+adf.test(yt1)
+
+dyt=diff(yt1)[-1]
+adf.test(dyt)
+
+ArchTest(dyt)
+
+
+m1=arima(yt1,c(1,1,1))
+summary(m1)
+
+mbest=auto.arima(yt1)
+summary(mbest)
+
+fit1=fitted(mbest)
+
+plot(yt1)
+lines(fit1,col='blue')
+ 
+pre1=forecast(mbest,5)
+plot(pre1)
+```
+
+
+
+
+
